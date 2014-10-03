@@ -23,8 +23,44 @@ def merge_sort(array)
   part_a = merge_sort(array.slice(0, mid))
   part_b = merge_sort(array.slice(mid, array.count - mid))
 
+  new_array = []
+  offset_a = 0
+  offset_b = 0
+
+  #Merge the smaller arrays together by comparing the first
+  #element and pushing the smaller of the two to the new
+  #array
+  while offset_a < part_a.count && offset_b < part_b.count
+    a = part_a[offset_a]
+    b = part_b[offset_b]
+
+    if a <= b
+      new_array << a
+      offset_a += 1
+    else
+      new_array << b
+      offset_b += 1
+    end
+  end
+
+  #There might be left over item that has not been pushed in
+  #either part_a or part_b.  This handles that case.
+  while offset_a < part_a.count
+    new_array << part_a[offset_a]
+    offset_a += 1
+  end
+
+  while offset_b < part_b.count
+    new_array << part_b[offset_b]
+    offset_b += 1
+  end
+
+  return new_array
 end
 
-test_array = (1..10000).to_a.shuffle!
+test_array = (1..1000).to_a.shuffle!
 
-merge_sort(test_array)
+puts "Here is the shuffled array"
+p test_array
+puts "Here is the sorted array"
+p merge_sort(test_array)
