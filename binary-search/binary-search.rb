@@ -1,3 +1,14 @@
+#Resources:
+#
+#https://www.youtube.com/watch?v=D5SrAga1pno
+#
+#Binary search divides the dataset in half and looks to see
+#if the desired value is left or right of the mid point.  It
+#continues this until it finds the desired value.  Binary
+#search requires the dataset to be sorted.
+#
+#Binary search is considered to be O(log n)
+
 def binary_search(array, value, from=0, to=nil)
   if to == nil
     to = array.count - 1
