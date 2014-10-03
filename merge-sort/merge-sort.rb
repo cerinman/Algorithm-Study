@@ -15,5 +15,16 @@ def merge_sort(array)
     return array
   end
 
+  mid = array.count / 2
+
+  #recursive call to break input array up into smaller single
+  #element arrays that can then be merged back together in a
+  #sorted order.
+  part_a = merge_sort(array.slice(0, mid))
+  part_b = merge_sort(array.slice(mid, array.count - mid))
 
 end
+
+test_array = (1..10000).to_a.shuffle!
+
+merge_sort(test_array)
