@@ -10,5 +10,10 @@
 #algorithms
 
 def merge_sort(array)
+  #Check if the array is larger than one.  No need to sort if not
+  if array.count <= 1
+    return array
+  end
+
 
 end
