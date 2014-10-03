@@ -10,3 +10,6 @@
 #been made on a single pass and the dataset is completely
 #sorted.
 
+def bubble_sort(array)
+  return array if array.size <= 1 #No need to sort an empty or single element array
+end
