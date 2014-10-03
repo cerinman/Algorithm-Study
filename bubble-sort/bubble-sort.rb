@@ -12,4 +12,24 @@
 
 def bubble_sort(array)
   return array if array.size <= 1 #No need to sort an empty or single element array
+
+  swapped = true #We have to have a flag to check if array is sorted.
+
+  while swapped do
+    swapped = false
+    0.upto(array.size - 2) do |i|
+      if array[i] > array[i + 1]
+        array[i], array[i + 1] = array[i + 1], array[i] #swap positions
+        swapped = true
+      end
+    end
+  end
 end
+
+test_array = (1..1000).to_a.shuffle!
+
+puts "Here is the unsorted array"
+p test_array
+puts "Here is the sorted array"
+bubble_sort(test_array)
+p test_array
