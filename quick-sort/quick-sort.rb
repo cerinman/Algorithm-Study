@@ -39,4 +39,38 @@ def quick_sort(array, from = 0, to = nil)
   #or wall that is used to separate the sorted part
   #of the array from the unsorted part.
   free = min
+
+  while min < max
+    if free == min #Evaluate array[max]
+      if array[max] <= pivot #Smaller than pivot must move
+        array[free] = array[max]
+        min += 1
+        free = max
+      else
+        max -= 1
+      end
+    elsif free == max #Evaluate array[min]
+      if array[min] >= pivot #Bigger than pivot must move
+        array[free] = array[min]
+        max -= 1
+        free = min
+      else
+        min += 1
+      end
+    else
+      raise "Inconsistent State"
+    end
+  end
+
+  array[free] = pivot
+
+  quick_sort(array, from, free - 1)
+  quick_sort(array, free + 1, to)
 end
+
+test_array = (1..1000).to_a.shuffle
+puts "Here is the unsorted array"
+p test_array
+puts "here is the sorted array"
+quick_sort(test_array)
+p test_array
