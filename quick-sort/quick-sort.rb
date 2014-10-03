@@ -25,4 +25,18 @@ def quick_sort(array, from = 0, to = nil)
   if from >= to
     return
   end
+
+  #Quick sort uses the key word 'pivot' to indicate
+  #the current array element being used to compare.
+  #It starts at the far left of the array.
+  pivot = array[from]
+
+  #Min and Max pointers to be used in algorithm
+  min = from
+  max = to
+
+  #Free represents the current free slot in the array
+  #or wall that is used to separate the sorted part
+  #of the array from the unsorted part.
+  free = min
 end
